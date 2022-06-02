@@ -1,3 +1,5 @@
+
+
 # HTML핵심 태그 사용법(문단, 텍스트,서식)
 
 ## **제목표시하기 h1~h6**
@@ -273,7 +275,7 @@ decimal,decimal-leading-zero,lower-roman,upper-roman,lower-alpha,upper-alpha
 
 # css 선택자
 
-css 자식선택자 : >  (바로밑에 자식)
+css 자식선택자 : >  (바로밑에 자식만)
 
 css자손 선택자 : 스펭이스  ()
 
@@ -573,7 +575,7 @@ a:hover {
 </html>
 ```
 
-## 기본 구문 만들기, 선택자
+## - 기본 구문 만들기, 선택자
 
 `$('선택자').함수(function(){`
 
@@ -596,6 +598,12 @@ $(".hide-btn").click(function () {
 });
 ```
 
+```html
+ <a class="show-btn" href="#">보이기</a>
+ <a class="hide-btn" href="#">감추기</a>
+ <p>태그선택자 a를 클릭했습니다.</p>
+```
+
 **선택자 종류**
 
 css 클래스 , css아이디 , css태그 , this
@@ -606,21 +614,226 @@ click , mouseenter , mouseleave
 
 **필수 메서드** 
 
-slideDown() , slideUp() , stop() , show() , hide() , fadeIn() , fadeOut() , addClass() , removeClass() , children() , siblings()
+`효과 메서드:`
 
+slideDown() , slideUp() , stop() , show() , hide() , toggle() , fadeIn() , fadeOut() 
 
+`클래스 제어 메서드:`
 
+addClass() , removeClass() , toggleClass() 
 
+`요소탐색 메서드:`
 
+children() , parent() , siblings() :형제 , find() :자손들 , next() :다음 , prev() :전
 
+# 함수
 
+## - click 함수
 
+```js
+//클릭하면 div가 보임
+$(".show-btn").click(function () {
+  $("div").show();
+});
+// 클릭하면 div가 숨겨짐
+$(".hide-btn").click(function () {
+  $("div").hide();
+});
+```
 
+```html
+<a class="show-btn" href="#">보이기</a>
+<a class="hide-btn" href="#">감추기</a>
+<div>box</div>
+```
 
+→ click함수 show()메서드, hid()메서드 활용
 
+## - mouseenter , mouseleave함수
 
+```js
+//마우스를 올려두면 보여짐
+$(".btn").mouseenter(function () {
+  $("div").show();
+});
+//마우스가 떠나면 사라짐
+$(".btn").mouseleave(function () {
+  $("div").hide();
+});
+```
 
+```html
+<a class="btn" href="#">보이기/감추기</a>
+<div>box</div>
+```
 
+→ mouseenter함수,mouseleave함수와  show()메서드, hid()메서드의 활용
+
+# 효과 메서드
+
+## - show() , hide() , toggle()
+
+```js
+// 클릭하면 보임
+$(".show-btn").click(function () {
+  $(".container div").show();
+});
+//클릭하면 숨김
+$(".hide-btn").click(function () {
+  $(".container div").hide();
+});
+//클릭하면 보이고 클릭하면 숨겨짐
+$(".toggle-btn").click(function () {
+  $(".container div").toggle();
+});
+```
+
+```html
+<div class="container">
+      <a class="show-btn" href="#">보이기</a>
+      <a class="hide-btn" href="#">감추기</a>
+      <a class="toggle-btn" href="#">토글</a>
+      <div>box</div>
+</div>
+```
+
+## - slideDown, slideUp, slideToggle
+
+```js
+//클릭하면 슬라이드 다운됨
+$(".show-btn").click(function () {
+  $(".container div").slideDown();
+});
+//클릭하면 슬라이드 업됨
+$(".hide-btn").click(function () {
+  $(".container div").slideUp();
+});
+//클릭하면 슬라이드 업 다운 됨
+$(".toggle-btn").click(function () {
+  $(".container div").slideToggle();
+});
+```
+
+## - fadeIn, fadeOut, fadeToggle
+
+```js
+//클릭하면 서서히 나타남
+$(".show-btn").click(function () {
+  $(".container div").fadeIn();
+});
+//클릭하면 서서히 사라짐
+$(".hide-btn").click(function () {
+  $(".container div").fadeOut();
+});
+//클릭하면 서서히 사라지고 서서히 나타남
+$(".toggle-btn").click(function () {
+  $(".container div").fadeToggle();
+});
+```
+
+→ 메서드뒤에()안에는 지속시간을 의미한다 넣지않으면 기본값이 적용됨:  fadeIn(지속시간)
+
+→ `.fadeIn("fast")` 이렇게 속도를 단어로 넣을땐 반드시 ''을사용해됨
+
+```js
+//0.5초간 서서히 보이게 하겠다
+$(".show-btn").click(function () {
+  $(".container div").fadeIn(500);
+});
+//느리게 서서히 사라지게 하겠다
+$(".hide-btn").click(function () {
+  $(".container div").fadeOut("slow");
+});
+```
+
+→ `.fadeIn(500)` 지속시간은 숫자로 넣을때는 숫자만 넣는다  1000 -> 1초
+
+# 클래스 제어 메서드
+
+## - addClass, removeClass, toggleClass
+
+```js
+//클릭하면 active 클래스가 추가됨
+$(".add-btn").click(function () {
+  $(".container div").addClass("active");
+});
+//클릭하면 active 클래스가 제거됨
+$(".remove-btn").click(function () {
+  $(".container div").removeClass("active");
+});
+//클릭하면 active 클래스가 추가되고 제거됨
+$(".toggle-btn").click(function () {
+  $(".container div").toggleClass("active");
+});
+```
+
+```css
+.container .active {
+  background-color: tomato;
+}
+```
+
+→ addClass("active") 클래스를 추가하거나 지우는 메서드 괄호에는 . 점을 쓰면안된다
+
+# 요소탐색 메서드
+
+## - children
+
+```js
+//this는 .menu li이고 자기자신이라는 뜻
+
+//.menu li에 마우스를 올리면 자식요소.sub-menu가 슬라이드 다운이된다
+$(".menu li").mouseenter(function () {
+  $(this).children(".sub-menu").stop().slideDown();
+});
+//.menu li에 마우스를 올리면 자식요소.sub-menu가 슬라이드 업된다
+$(".menu li").mouseleave(function () {
+  $(this).children(".sub-menu").stop().slideUp();
+});
+```
+
+```html
+<ul class="menu">
+    <li>
+        <a href="#">menu-1</a>
+        <div class="sub-menu">
+            <a href="#">sub-menu-1</a>
+            <a href="#">sub-menu-2</a>
+            <a href="#">sub-menu-3</a>
+            <a href="#">sub-menu-4</a>
+        </div>
+     </li>
+     <li>
+         <a href="#">menu-2</a>
+         <div class="sub-menu">
+             <a href="#">sub-menu-1</a>
+             <a href="#">sub-menu-2</a>
+             <a href="#">sub-menu-3</a>
+             <a href="#">sub-menu-4</a>
+         </div>
+     </li>
+ </ul>
+```
+
+→ 효과메서드 `.stop()` 넣어주면 그전 행동을 삭제해버려서 버벅거리지않음
+
+## - siblings
+
+```js
+$("span").click(function () {
+  // 자신이 클릭될때는 active 클래스를 추가해라
+  $(this).addClass("active");
+  // 자신이 클릭될때 자신의 형제에게는 active클래스를 지워라
+  $(this).siblings().removeClass("active");
+});
+```
+
+```html
+<div class="btn">
+      <span>공지사항</span>
+      <span>갤러리</span>
+</div>
+```
 
 
 

@@ -1,10 +1,6 @@
-// p태그를 css로 숨기기함
-$("p").css({ display: "none" });
-//  클릭하면 p태그가 보임
-$(".show-btn").click(function () {
-  $("p").css({ display: "block" });
-});
-//  클릭하면 p태그가 숨겨짐
-$(".hide-btn").click(function () {
-  $("p").css({ display: "none" });
+$("span").click(function () {
+  // 자신이 클릭될때는 active 클래스를 추가해라
+  $(this).addClass("active");
+  // 자신이 클릭될때 자신의 형제에게는 active클래스를 지워라
+  $(this).siblings().removeClass("active");
 });
