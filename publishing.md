@@ -835,13 +835,134 @@ $("span").click(function () {
 </div>
 ```
 
+# 제작
 
+## keyframe, animation
 
+###  **- 원형 크기 변경 로딩 애니메이션 **   (animation-delay)
 
+```css
+.loading span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: gray;
+  /*loading 애니메이션을 1초동안 부드럽게 무한으로 실행한다 */
+  animation: loading 1s linear infinite;
+}
 
+.loading span:nth-child(1) {
+  animation-delay: 0s;
+  background-color: tomato;
+}
+/* 0.2초 대기하다가 실행함 */
+.loading span:nth-child(2) {
+  animation-delay: 0.2s;
+  background-color: orange;
+}
+/* 0.4초 대기하다가 실행함 */
+.loading span:nth-child(3) {
+  animation-delay: 0.4s;
+  background-color: royalblue;
+}
 
+@keyframes loading {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+```
 
+→ keyframes으로 로링이라는 애니메이션을 만들어주고 각각 span마다 **animation-delay**을 줘서 로딩효과를줌
 
+``` html
+<div class="loading">
+    <span></span>
+    <span></span>
+    <span></span>
+ </div>
+```
+
+### **- 사각형 좌표 변경 로딩 애니메이션 **  (calc)
+
+```css
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.loading {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  /* border: 1px solid palevioletred; */
+}
+.loading span {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  background-color: tomato;
+  animation: loading 1.5s infinite;
+}
+.loading span:nth-child(1) {
+  background-color: tomato;
+}
+.loading span:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+@keyframes loading {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    /* 자기자신의 너비 값을 빼준값만큼 100%로 움직임 */
+    left: calc(100%-30px);
+    background-color: yellowgreen;
+  }
+  50% {
+    top: calc(100% - 30px);
+    left: calc(100% - 30px);
+    background-color: orange;
+  }
+  75% {
+    top: calc(100% - 30px);
+    left: 0;
+    background-color: thistle;
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+}
+```
+
+→ `calc(100%-30px)` 을 사용해서 부모안에서 움직이도록, 자기자신의 너비 값을 빼준값만큼 100%로 움직였다
+
+``` html
+<div class="loading">
+      <span></span>
+      <span></span>
+</div>
+```
+
+### - 더블 보더 레디어스 애니메이션
+
+borderany.html / borderany.css 확인하기
 
 
 
