@@ -964,7 +964,72 @@ body {
 
 borderany.html / borderany.css 확인하기
 
+# hover
 
+### - 기본형 드롭다운 네비게이션
+
+hover 다음에는 무조건 자식요소가 와야 적용된다
+
+```css
+a {
+  color: black;
+  text-decoration: none;
+}
+.dropdown {
+  width: 200px;
+}
+.dropdown-btn {
+  /* inherit은 부모의 너비를 상속함*/
+  width: inherit;
+  padding: 10px;
+  font-size: 18px;
+  background-color: yellowgreen;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.dropdown-submenu {
+  display: none;
+  border: 1px solid yellowgreen;
+  width: inherit;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(167, 167, 167, 0.425);
+}
+.dropdown-submenu a {
+  display: block;
+  padding: 7px;
+  text-align: center;
+}
+.dropdown-submenu a:hover {
+  background-color: antiquewhite;
+}
+
+/* hover 다음에는 무조건 자식요소가 와야 작동함 */
+.dropdown:hover .dropdown-submenu {
+  display: block;
+}
+```
+
+```html
+<div class="dropdown">
+    <button class="dropdown-btn">Real Estate Type</button>
+    <div class="dropdown-submenu">
+        <a href="#">All</a>
+        <a href="#">One room</a>
+        <a href="#">1.5 rooms</a>
+        <a href="#">Two Room</a>
+        <a href="#">Three Room</a>
+        <a href="#">Officetel</a>
+        <a href="#">Apartment</a>
+    </div>
+</div>
+```
+
+### - 오버하면 상세설명 나타나는 상품목록
+
+drop/item.html , item.css
+
+### - 마우스 오버되면 나타나는 툴팁 만들기
 
 
 

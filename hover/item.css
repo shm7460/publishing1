@@ -1,0 +1,41 @@
+/* 오버하면 상세설명 나타나는 상품목록 */
+a {
+  color: white;
+  text-decoration: none;
+  background-color: teal;
+  padding: 5px;
+  border-radius: 3px;
+}
+a:hover {
+  background-color: white;
+  color: black;
+}
+.items {
+  text-align: center;
+  position: relative;
+}
+.item {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+  margin: 0px 50px;
+}
+.caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 350px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 20px;
+  padding-top: 40px;
+  margin: 0px 30px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.item:hover .caption {
+  opacity: 1;
+}
