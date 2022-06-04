@@ -1,0 +1,43 @@
+body {
+  color: white;
+  margin: 0;
+  background-color: #222;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.items {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.item {
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+}
+.front {
+  background-color: #333;
+  text-align: center;
+  height: inherit;
+}
+.front h2 {
+  margin-top: 0;
+}
+.back {
+  background-color: white;
+  color: black;
+  height: inherit;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.back a {
+  background-color: yellowgreen;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+}

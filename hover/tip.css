@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.icon {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+}
+.icon:hover span {
+  visibility: visible;
+  opacity: 1;
+}
+.icon span {
+  position: absolute;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  width: 300px;
+  top: -80px;
+  /* 부모요소 너비의 반틈정도 움직임 */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  /* 자리값은 있지만 보이는것만 사라짐 display:none이랑은 다름 */
+  visibility: hidden;
+  /* hover의 효과를 꾸며줌 */
+  transition: 0.5s;
+}
+
+/* span은 부모이다 근데 이미 포지션이 있기때매  또 포지션 부모로 줄필요없다 */
+/* 툴팁 화살표 만들기 */
+.icon span:after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateX(-50%);
+  bottom: -5px;
+  left: 50%;
+}

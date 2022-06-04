@@ -1,0 +1,35 @@
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+body {
+  background-color: royalblue;
+}
+.gnb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50px;
+}
+.gnb a {
+  display: block;
+  font-size: 40px;
+  margin: 30px 0;
+  text-decoration: none;
+  color: white;
+  transform: 0.5s;
+}
+.gnb a:before {
+  content: "\f105";
+  font-family: fontawesome;
+  margin-right: 10px;
+  opacity: 0;
+}
+/* hover먼저 해주고 before해준다 */
+.gnb a:hover:before {
+  opacity: 1;
+}
+/* 밑에 두개 hover효과 순서를 지켜야지 적용됨 */
+.gnb:hover a {
+  opacity: 0.3;
+}
+.gnb a:hover {
+  opacity: 1;
+}

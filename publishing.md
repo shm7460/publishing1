@@ -1031,11 +1031,108 @@ drop/item.html , item.css
 
 ### - 마우스 오버되면 나타나는 툴팁 만들기
 
+```css
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.icon {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+}
+.icon:hover span {
+  visibility: visible;
+  opacity: 1;
+}
+.icon span {
+  position: absolute;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  width: 300px;
+  top: -80px;
+  /* 부모요소 너비의 반틈정도 움직임 */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  /* 자리값은 있지만 보이는것만 사라짐 display:none이랑은 다름 */
+  visibility: hidden;
+  /* hover의 효과를 꾸며줌 */
+  transition: 0.5s;
+}
 
+/* span은 부모이다 근데 이미 포지션이 있기때매  또 포지션 부모로 줄필요없다 */
+/* 툴팁 화살표 만들기 */
+.icon span:after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateX(-50%);
+  bottom: -5px;
+  left: 50%;
+}
+```
 
+→ `after`라고하면  `content: ""` 내용을 넣어줘야됨 
 
+→ `visibility:hidden`과 `visibility:visible` 대신에 `pointer-events:none` 해줘도됨
 
+→ `left: 50%` /  `transform: translateX(-50%)` : 가운데로 가게함
 
+→ 포지션이 있는 곳에는 또 포지션을 해줄필요가 없다
+
+### - 오버한 메뉴 외 나머지 흐려지는 네비게이션
+
+```css
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+body {
+  background-color: royalblue;
+}
+.gnb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50px;
+}
+.gnb a {
+  display: block;
+  font-size: 40px;
+  margin: 30px 0;
+  text-decoration: none;
+  color: white;
+  transform: 0.5s;
+}
+.gnb a:before {
+  content: "\f105";
+  font-family: fontawesome;
+  margin-right: 10px;
+  opacity: 0;
+}
+/* hover먼저 해주고 before해준다 */
+.gnb a:hover:before {
+  opacity: 1;
+}
+/* 밑에 두개 hover효과 순서를 지켜야지 적용됨 */
+.gnb:hover a {
+  opacity: 0.3;
+}
+.gnb a:hover {
+  opacity: 1;
+}
+```
+
+→ `before` 해주고`content: "" ;` 해야된다
+
+→  호버의 순서지키기
 
 
 
