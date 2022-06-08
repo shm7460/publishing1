@@ -1249,6 +1249,8 @@ transform: rotate(-30deg) skewX(25deg);
 
 → 사용자 정의속성이다 아무이름이나 해도 상관없다
 
+파일경로: before,after/content.html, content.css
+
 ## 04순서 체크 가상클래스
 
 ### - 애니메이션 스킬 프로그래스
@@ -1293,6 +1295,151 @@ transform: rotate(-30deg) skewX(25deg);
 
 근데 100%에서 머물고 싶으면  `animation-fill-mode: both;`하면된다
 
+### - 갤러리 이미지 어코디언 네비게이션
+
+파일경로: order / gallery.html, gallery.css
+
+```css
+.gallery li {
+  position: relative;
+  border-right: 5px solid black;
+  /* 각각 1비율로 가져간다는 뜻  */
+  flex: 1;
+  transition: 0.5s;
+  /* .content 숨김 내용이넘치면 숨겨줌 */
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center; /* background: no-repeat center center; 이렇게 한 줄로 표시해도 됨*/
+}
+```
+
+→ `flex: 1;`은 각각 1비율로 가져간다
+
+ `overflow: hidden;` 은 내용이 넘치면 숨겨줌
+
+```css
+.content {
+  /* 포지션에 이미 absolute가있으면 relative가 포함되어있다 */
+  position: absolute;
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100%;
+  /* 내용 밑으로 숨김 */
+  height: 250px;
+  bottom: -300px;
+  transition: 0.5s;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+.content:before {
+  position: absolute;
+  content: "";
+  background-color: black;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  top: -10px;
+  transform: rotate(-3deg) scale(1.3);
+  /* 기준을 잡고 트렌스폼 하겠다는 뜻  */
+  transform-origin: left bottom;
+}
+```
+
+→  포지션에 이미 absolute가있으면 relative가 포함되어있다
+
+`transform-origin: left bottom` 기준을 만들고 하겠다는 뜻
+
+## 05확장선택자
+
+### - 애니메이션 햄버거 버튼 만들기
+
+파일경로: extend/ burger.html, burger.css
+
+```css
+/* X자 만들기  */
+input:checked + label span:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg);
+}
+input:checked + label span:nth-child(2) {
+  opacity: 0;
+}
+input:checked + label span:nth-child(3) {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+```
+
+→ span3개로 X자 만들기
+
+
+
+### - 애니메이션 사이드메뉴 만들기
+
+파일경로: extend/ sideburger.html, sideburger.css
+
+`+`  은 서로 가까이 인접해있을때 사용 
+
+`~`  은 같은 형제요소에게 사용
+
+
+
+### - 탭 메뉴 콘텐츠 만들기
+
+파일경로: extend/ tabnav.html, tabnav.css
+
+```html
+<!-- 맨처음 요소는 체크가 되어있어야된다 그래서 처음에만 checked 적음 -->
+<input type="radio" name="tabmenu" id="tab1" checked />
+<input type="radio" name="tabmenu" id="tab2" />
+<input type="radio" name="tabmenu" id="tab3" />
+
+<div class="btn">
+    <label for="tab1"></label>
+    <label for="tab2"></label>
+    <label for="tab3"></label>
+</div>
+```
+
+→ input디자인할때 input은 안보이게하고  label과 input이 연결되어있어 label로 꾸며줄수있다
+
+ (대신 id와 for 이름이 같아야한다)
+
+`<label>` 을 `<input>` 요소와 연관시키려면, `<input>` 에 `id` 속성을 넣어야합니다. 그런 다음 `<label>` 에 `id` 와 같은 값의 `for` 속성을 넣어야합니다. 
+
+```css
+.content {
+  /*  absolute 하면 사진이 다겹쳐져있음 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+/* ~ 형제요소를 부를때 사용 */
+input[id="tab1"]:checked ~ .slide1,
+input[id="tab2"]:checked ~ .slide2,
+input[id="tab3"]:checked ~ .slide3 {
+    /* 투명도랑 보이는것 둘다 줘야지 a태그링크가 맞아짐 아니면 마지막 a태그만 계속 상위에 있어서 
+    a태그 제대로 작동안함 */
+  opacity: 1;
+  visibility: visible;
+}
+```
+
+→ `opacity: 0;`을 사용해 a태그안에 이미지를 투명하게 할때는 `visibility: hidden;`을 같이 사용해야함
+
+`display:none` 는 아예 존재가 사라짐
+
+ `visibility: hidden` 는 존재는 사라지되 자신의 자리값은 유지함
+
+
+
+### - 탭 콘텐츠 - Slide
 
 
 
@@ -1331,9 +1478,6 @@ transform: rotate(-30deg) skewX(25deg);
 
 
 
-
-
- 
 
 
 

@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tab-inner {
+  border: 1px solid red;
+  width: 300px;
+  height: 350px;
+}
+input[name="tabmenu"] {
+  display: none;
+}
+
+.slide-inner {
+  width: 900px;
+  /* img옆에 마진부분인 포트사이즈에 해당해서 0으로 해주면 너비에 맞게 사진이 들어감 */
+  font-size: 0;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 10px;
+}
+.btn label {
+  background-color: lightgrey;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}

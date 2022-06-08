@@ -1,0 +1,39 @@
+input {
+  display: none;
+}
+label {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  display: block;
+  cursor: pointer;
+}
+label span {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+  left: 0;
+  transition: 0.3s;
+}
+label span:nth-child(1) {
+  top: 0;
+}
+label span:nth-child(2) {
+  top: 50%;
+}
+label span:nth-child(3) {
+  top: 100%;
+}
+/* X자 만들기  */
+input:checked + label span:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg);
+}
+input:checked + label span:nth-child(2) {
+  opacity: 0;
+}
+input:checked + label span:nth-child(3) {
+  top: 50%;
+  transform: rotate(-45deg);
+}

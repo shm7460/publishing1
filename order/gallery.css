@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.gallery {
+  display: flex;
+  height: 100vh;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gallery li {
+  position: relative;
+  border-right: 5px solid black;
+  /* 각각 1비율로 가져간다는 뜻  */
+  flex: 1;
+  transition: 0.5s;
+  /* .content 숨김 */
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center; /* background: no-repeat center center; 이렇게 한 줄로 표시해도 됨*/
+}
+
+.gallery li:last-child {
+  border-right: none;
+}
+
+.gallery li:nth-child(1) {
+  background-image: url(images/artistic-image-01.jpg);
+}
+
+.gallery li:nth-child(2) {
+  background-image: url(images/artistic-image-02.jpg);
+}
+
+.gallery li:nth-child(3) {
+  background-image: url(images/artistic-image-03.jpg);
+}
+
+.gallery li:nth-child(4) {
+  background-image: url(images/artistic-image-04.jpg);
+}
+
+.gallery li:nth-child(5) {
+  background-image: url(images/artistic-image-05.jpg);
+}
+
+.gallery li:hover {
+  flex: 3;
+  filter: grayscale(1);
+}
+
+.content {
+  /* 포지션에 이미 absolute가있으면 relative가 포함되어있다 */
+  position: absolute;
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100%;
+  /* 내용 밑으로 숨김 */
+  height: 250px;
+  bottom: -300px;
+  transition: 0.5s;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+.content:before {
+  position: absolute;
+  content: "";
+  background-color: black;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  top: -10px;
+  transform: rotate(-3deg) scale(1.3);
+  /* 기준을 잡고 트렌스폼 하겠다는 뜻  */
+  transform-origin: left bottom;
+}
+
+.sns a {
+  color: gray;
+}
+
+.gallery li:hover .content {
+  bottom: 0;
+  transition-delay: 0.5s;
+}

@@ -1,0 +1,109 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.tab-inner {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  overflow: hidden;
+}
+
+input[name="tabmenu"] {
+  display: none;
+}
+
+.content {
+  /*  absolute 하면 사진이 다겹쳐져있음 */
+  position: absolute;
+  top: 0;
+  left: -50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.btn {
+  /* 포지션을 주면 inline 유형을 바뀌기때문에 width 100%을 해야지 중앙정렬이 된다 */
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 15px;
+}
+.btn label {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: lightgray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ~ 형제요소를 부를때 사용 */
+input[id="tab1"]:checked ~ .slide1,
+input[id="tab2"]:checked ~ .slide2,
+input[id="tab3"]:checked ~ .slide3 {
+  /* 투명도랑 보이는것 둘다 줘야지 a태그링크가 맞아짐 아니면 마지막 a태그만 계속 상위에 있어서 a태그 제대로 작동안함 */
+  opacity: 1;
+  visibility: visible;
+  /* 최초 시작 위치는 -50px이다 */
+  left: 0;
+}
+
+input[id="tab1"]:checked ~ .btn label[for="tab1"],
+input[id="tab2"]:checked ~ .btn label[for="tab2"],
+input[id="tab3"]:checked ~ .btn label[for="tab3"] {
+  background-color: tomato;
+}
+
+input[id="tab1"]:checked ~ .heading .text1,
+input[id="tab2"]:checked ~ .heading .text2,
+input[id="tab3"]:checked ~ .heading .text3 {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.text1,
+.text2,
+.text3 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  background-color: tomato;
+  color: white;
+  border-radius: 50%;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 0;
+  box-sizing: border-box;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.text1 span,
+.text2 span,
+.text3 span {
+  font-size: 20px;
+  display: block;
+  margin: 5px;
+}
+
+.text2 {
+  background-color: dodgerblue;
+}
+.text3 {
+  background-color: yellowgreen;
+}
