@@ -837,7 +837,7 @@ $("span").click(function () {
 
 # 제작
 
-## keyframe, animation
+## 01keyframe, animation
 
 ###  **- 원형 크기 변경 로딩 애니메이션 **   (animation-delay)
 
@@ -962,9 +962,9 @@ body {
 
 ### - 더블 보더 레디어스 애니메이션
 
-borderany.html / borderany.css 확인하기
+파일경로 : any/ borderany.html , borderany.css 
 
-# hover
+## 02hover
 
 ### - 기본형 드롭다운 네비게이션
 
@@ -1134,37 +1134,164 @@ body {
 
 →  호버의 순서지키기
 
+### - 위아래로 분리되는 호버 네비게이션 이펙트
 
+트랜지션을했을때 시작할때 속성이없으면 트랜지션이안됨
 
+```css
+.back {
+  transition: 0.5s;
+  /* 먼저 top:0라고 해줘야지 transition이된다  */
+  top: 0;
+  background-color: white;
+  color: black;
+  height: inherit;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0;
+```
 
+파일경로: hover/divide.html, divide.css
 
+### - 앱 UI 레이어 3D 호버 에니메이션
 
+```css
+transform: rotate(-30deg) skewX(25deg);
+```
 
+→ 30도 돌아서 25도 기울기
 
+파일경로: hover/layer.html, layer.css
 
+### - 폰트어썸 사용한 입력 필드(input)
 
+인접선택자는 절대 위로 선택할수없다  `+` 선택자로 한다
 
+```css
+/* 인접선택자 사용하기 + */
+.item input:focus + i {
+  color: dodgerblue;
+}
+/* input에 focus가되면 안에 텍스트가 사라짐 */
+.item input:focus::placeholder {
+  visibility: hidden;
+}
+```
 
+파일결로: hover/input.html, input.css
 
+#  03before after 
 
+### - before after 기본 사용법
 
+```html
+ <head>
+    <style>
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .gnb a:after {
+        content: "update";
+        background-color: tomato;
+        color: white;
+        margin-left: 5px;
+        border-radius: 5px;
+      }
+      .gnb a::before {
+        content: "01";
+        background-color: royalblue;
+        color: white;
+        margin-right: 5px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gnb">
+      <a href="#">CodingWorks Online Class</a>
+    </div>
+  </body>
+```
 
+### - 보더 애니메이션 네비게이션 호버 이펙트
 
+파일경로 : before,after/nav.html , nav.css 
 
+```css
+  /* 점을 가운데로 보내기 */
+  left: 50%;
+  transform: translateX(-50%);
 
+/* 양쪽으로 퍼지게 보여줌 */
+.gnb li a:hover:before {
+  width: 100%;
+}
+```
 
+### - SNS 아이콘 애니메이션
 
+파일경로: before,after/snsicon.html, snsnicon,css
 
+`before`은 자식요소이고 `position: absolute;` 이다
 
+### - content attr을 활용한 텍스트 네비게이션(naver)
 
+```html
+<a href="#" data-link="메일"></a>
+```
 
+→ 사용자 정의속성이다 아무이름이나 해도 상관없다
 
+## 04순서 체크 가상클래스
 
+### - 애니메이션 스킬 프로그래스
 
+파일경로: order/ ami.html , ami.css
 
+```css
+.progress-level {
+  height: 10px;
+  background: linear-gradient(to right, crimson, gold);
+  animation: ani;
+  animation-duration: 1s;
+}
 
+@keyframes ani {
+  0% {
+    width: 0%;
+  }
+}
+```
 
+→ 새로고침하면 프로그래스 레벨이 너비가0% 에서 지정 너비로 움직인다
 
+```css
+.item:nth-of-type(1) .progress-level {
+  animation-delay: 0s;
+}
+```
+
+→ nth-child 는 html에서 태그 출연순서로 매겨진다 
+
+그래서 nth-child(5)으로 하면 마지막 .item의 다섯번째 순서가 먹히지않는다 (태그분별을 못함)
+
+`nth-of-type(숫자)`를 하면 .item의 클래스 태그까지 분별해서 순서를 매겨준다 (더 정확함)
+
+```css
+ /* 애니메이션이 끝나면 100%에서 머물게 해줌 */
+  animation-fill-mode: both;
+```
+
+→ 애니메이션은 0%에서 100%으로 동작을 하면 무조건 0%으로 다시 준비를 한다 
+
+근데 100%에서 머물고 싶으면  `animation-fill-mode: both;`하면된다
 
 
 

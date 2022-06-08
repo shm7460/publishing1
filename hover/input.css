@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.item {
+  position: relative;
+  width: 300px;
+  margin-bottom: 10px;
+}
+.item input[type="text"],
+.item input[type="email"],
+.item input[type="tel"] {
+  border: 1px solid lightgray;
+  height: 40px;
+  width: inherit;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 40px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.item i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: gray;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.item input:focus {
+  border: 1px solid dodgerblue;
+  box-shadow: 0 0 5px dodgerblue;
+}
+/* input에 focus가되면 안에 텍스트가 사라짐 */
+.item input:focus::placeholder {
+  visibility: hidden;
+}
+
+/* 인접선택자 사용하기 + */
+.item input:focus + i {
+  color: dodgerblue;
+}

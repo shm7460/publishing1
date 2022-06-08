@@ -1,0 +1,46 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.gnb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(128, 128, 128, 0.178);
+  padding: 50px 30px;
+}
+.gnb li {
+  flex: 1;
+  text-align: center;
+}
+.gnb li a {
+  font-size: 14px;
+  position: relative;
+}
+.gnb li a:before {
+  content: "";
+  position: absolute;
+  background-color: tomato;
+  height: 2px;
+  width: 0;
+  bottom: -10px;
+  transition: 0.5s;
+  /* 점을 가운데로 보내기 */
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* 양쪽으로 퍼지게 보여줌 */
+.gnb li a:hover:before {
+  width: 100%;
+}
