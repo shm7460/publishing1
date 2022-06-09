@@ -1,0 +1,81 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: normal;
+}
+input {
+  display: none;
+}
+.tab-inner {
+  height: 520px;
+}
+.tabs {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  overflow: hidden;
+}
+.items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  /* 자식요소가 float를 했기때문에 부모요소는 높이값을 잃어서 지정해줘야됨 */
+  height: 400px;
+  transition: 0.5s;
+  text-align: center;
+}
+.items div {
+  width: 800px;
+  height: 400px;
+  box-sizing: border-box;
+  padding: 50px 40px;
+}
+.btn {
+  text-align: center;
+}
+.btn label {
+  width: 10px;
+  height: 10px;
+  background-color: lightgray;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+input[id="tab1"]:checked ~ .tabs .items {
+  /* top하면 세로슬라이드가 됨 */
+  top: 0;
+}
+input[id="tab2"]:checked ~ .tabs .items {
+  top: -400px;
+}
+input[id="tab3"]:checked ~ .tabs .items {
+  top: -800px;
+}
+
+.items div img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+b {
+  display: block;
+}
+span {
+  color: orange;
+}
+
+input[id="tab1"]:checked ~ .btn label[for="tab1"],
+input[id="tab2"]:checked ~ .btn label[for="tab2"],
+input[id="tab3"]:checked ~ .btn label[for="tab3"] {
+  border-radius: 50%;
+  background-color: tomato;
+}

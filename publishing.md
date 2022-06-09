@@ -1441,15 +1441,98 @@ input[id="tab3"]:checked ~ .slide3 {
 
 ### - 탭 콘텐츠 - Slide
 
+파일경로 extend/ slide.html , slide.css
+
+```css
+.slide-inner {
+  position: absolute;
+  width: 900px;
+  /* img옆에 마진부분인 포트사이즈에 해당해서 0으로 해주면 너비에 맞게 사진이 들어감 */
+  font-size: 0;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+}
+```
+
+→ img는 겹치게되면 margin이 남는다 근데 그게  font 성질이라서 font-size:0을 주면 없어진다.
+
+```html
+<!--.slide의 너비가 300px -->
+<div class="slide">
+    <!--.slid-inner의 너비가 900px -->
+    <div class="slide-inner">
+        <a href="#1"><img src="images/slide-01.jpg" alt="" /></a>
+        <a href="#2"><img src="images/slide-02.jpg" alt="" /></a>
+        <a href="#3"><img src="images/slide-03.jpg" alt="" /></a>
+    </div>
+</div>
+```
+
+→ div를 두개나 겹친 이유는 (.slide와.slid-inner) 상위div는 보여지는 슬라이드 너비이고 , 
+
+하위 div는 가려진 이미지들의 전체 너비이다.
 
 
 
+### - Testimonial 탭  슬라이더(세로)
+
+파일경로: extend/ Testimonial.html , Testimonial.css
+
+```css
+input[id="tab1"]:checked ~ .tabs .items {
+  /* top하면 세로슬라이드가 됨 */
+  top: 0;
+}
+input[id="tab2"]:checked ~ .tabs .items {
+  top: -400px;
+}
+input[id="tab3"]:checked ~ .tabs .items {
+  top: -800px;
+}
+```
+
+→ top만 하면됨 세로슬라이드만들기
 
 
 
+## 06PureScreen
 
+### - 풀스크린 탭 콘텐츠 슬라이더 프로토타입
 
+파일경로: purescreen/ slider.html, slider.css
 
+```css
+.tabs {
+  position: relative;
+  /* 자식요소 .items가 포지션 앱솔루트가되서 붕떠버려 부모인 .tabs의 높이가 사라져 꼭 부모에게 높이값을 지정해야됨 */
+  height: 100vh;
+  overflow: hidden;
+}
+.items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 300%;
+  transition: 0.5s;
+}
+```
+
+```css
+.btn {
+  /* .btn은 div인 block인데  포지션을 줘서 인라인 블럭이됨 */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+```
+
+```css
+/* 이미지가 고정되어있는 느낌을 준다 */
+background-attachment: fixed;
+```
 
 
 
