@@ -893,6 +893,8 @@ $("span").click(function () {
  </div>
 ```
 
+
+
 ### **- 사각형 좌표 변경 로딩 애니메이션 **  (calc)
 
 ```css
@@ -960,9 +962,13 @@ body {
 </div>
 ```
 
+
+
 ### - 더블 보더 레디어스 애니메이션
 
 파일경로 : any/ borderany.html , borderany.css 
+
+
 
 ## 02hover
 
@@ -1025,9 +1031,13 @@ a {
 </div>
 ```
 
+
+
 ### - 오버하면 상세설명 나타나는 상품목록
 
 drop/item.html , item.css
+
+
 
 ### - 마우스 오버되면 나타나는 툴팁 만들기
 
@@ -1089,6 +1099,8 @@ drop/item.html , item.css
 
 → 포지션이 있는 곳에는 또 포지션을 해줄필요가 없다
 
+
+
 ### - 오버한 메뉴 외 나머지 흐려지는 네비게이션
 
 ```css
@@ -1134,6 +1146,8 @@ body {
 
 →  호버의 순서지키기
 
+
+
 ### - 위아래로 분리되는 호버 네비게이션 이펙트
 
 트랜지션을했을때 시작할때 속성이없으면 트랜지션이안됨
@@ -1154,6 +1168,8 @@ body {
 
 파일경로: hover/divide.html, divide.css
 
+
+
 ### - 앱 UI 레이어 3D 호버 에니메이션
 
 ```css
@@ -1164,7 +1180,11 @@ transform: rotate(-30deg) skewX(25deg);
 
 파일경로: hover/layer.html, layer.css
 
+
+
 ### - 폰트어썸 사용한 입력 필드(input)
+
+파일결로: hover/input.html, input.css
 
 인접선택자는 절대 위로 선택할수없다  `+` 선택자로 한다
 
@@ -1179,7 +1199,7 @@ transform: rotate(-30deg) skewX(25deg);
 }
 ```
 
-파일결로: hover/input.html, input.css
+
 
 #  03before after 
 
@@ -1220,6 +1240,8 @@ transform: rotate(-30deg) skewX(25deg);
   </body>
 ```
 
+
+
 ### - 보더 애니메이션 네비게이션 호버 이펙트
 
 파일경로 : before,after/nav.html , nav.css 
@@ -1235,21 +1257,90 @@ transform: rotate(-30deg) skewX(25deg);
 }
 ```
 
+
+
 ### - SNS 아이콘 애니메이션
 
 파일경로: before,after/snsicon.html, snsnicon,css
 
 `before`은 자식요소이고 `position: absolute;` 이다
 
+
+
 ### - content attr을 활용한 텍스트 네비게이션(naver)
+
+파일경로: before,after/content.html, content.css
 
 ```html
 <a href="#" data-link="메일"></a>
 ```
 
-→ 사용자 정의속성이다 아무이름이나 해도 상관없다
+→ 사용자 정의속성이다 아무이름이나 해도 상관없다 (date-이름="")
 
-파일경로: before,after/content.html, content.css
+```html
+<div class="gnb3">
+      <a href="#" data-text="CONDINGWORKS ONLINE CLASS"></a>
+</div>
+```
+
+→ data-text로 사용자 정의속성에서 내용넣어주기
+
+```css
+.gnb3 a:before,
+.gnb3 a:after {
+  position: absolute;
+  content: attr(data-text);
+  width: inherit;
+  height: inherit;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  transition: 0.3s;
+}
+```
+
+→ content: attr(data-text)으로 html data-text 내용가져오기
+
+ `width: inherit` = `width:100%` 같은뜻임
+
+
+
+### - 네비게이션 호버이펙트 – Rotate
+
+파일경로: after,before/ rotate.html, rotate.css
+
+```css
+background-color: transparent;  //배경투명도 적용하기
+```
+
+```css
+.gnb a {
+  position: relative;
+  display: block;
+  width: 450px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+.gnb a:before,
+.gnb a:after {
+  position: absolute;
+  content: "";   //content가 있어야 before after가 작동한다
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  top: 0;
+  left: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+}
+```
+
+→ . gnb a는 부모요소이고 .gnb a:before, .gnb a:after는 자식요소이다 단순이 gnb a 양옆에 붙어있는게아니기때문에 포지션으로 구분해줘야한다 
+
+
 
 ## 04순서 체크 가상클래스
 
@@ -1294,6 +1385,8 @@ transform: rotate(-30deg) skewX(25deg);
 → 애니메이션은 0%에서 100%으로 동작을 하면 무조건 0%으로 다시 준비를 한다 
 
 근데 100%에서 머물고 싶으면  `animation-fill-mode: both;`하면된다
+
+
 
 ### - 갤러리 이미지 어코디언 네비게이션
 
@@ -1350,6 +1443,8 @@ transform: rotate(-30deg) skewX(25deg);
 →  포지션에 이미 absolute가있으면 relative가 포함되어있다
 
 `transform-origin: left bottom` 기준을 만들고 하겠다는 뜻
+
+
 
 ## 05확장선택자
 
@@ -1436,6 +1531,92 @@ input[id="tab3"]:checked ~ .slide3 {
 `display:none` 는 아예 존재가 사라짐
 
  `visibility: hidden` 는 존재는 사라지되 자신의 자리값은 유지함
+
+
+
+### - 라디오버튼과 체크박스를 커스텀 
+
+파일경로 : extend/ check.html, check.css
+
+**이미지를 가져와서 커스텀 하기**
+
+```html
+<div class="custom">
+    <input type="checkbox" id="agree-chk" />
+    <label for="agree-chk">
+    	<em></em>약관을 충분히 이해하였으며 동의 합니다.
+    </label>
+</div>
+```
+
+→ id 와 labe의 이름을 동일하게 해야 연결됨
+
+```css
+.custom input[type="checkbox"] {
+  /* none 사라져도 기능은 동일하다 */
+  display: none;
+}
+.custom label {
+  cursor: pointer;
+}
+.custom label em {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  /* inline요소끼리 중앙을 맞출때 사용 */
+  vertical-align: bottom;
+  margin-right: 5px;
+  background: url(images/checkbox-02.png) no-repeat;
+  /* x:left , y:center */
+  background-position: left center;
+}
+.custom input[type="checkbox"]:checked + label em {
+  background-position: right center;
+}
+
+```
+
+→  background-position에서 left center은 x y좌표이다
+
+```css
+/* +인접선택자 사용  */
+.grade input[type="radio"]:checked + label em {
+  background-position: right center;
+}
+```
+
+→ + 는 완전 바로옆에있는 인접한 선택만 한다
+
+```html
+<div class="grade">
+    <!-- 동일한 name값을 가지고 있어서 중복선택 막음 -->
+    <input type="radio" name="grade" id="grade-chk1" />
+    <label for="grade-chk1"><em></em>초등학생
+    </label>
+</div>
+```
+
+→ imput에서 name이 동일한 이름이면 중복선택을 막을수 있다
+
+
+
+**폰트어썸 사용해서 커스텀하기**
+
+```css
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+```
+
+→ css에 폰트어썸cdn import하기
+
+→ 폰트어썸 사이트 들어가서 원하는 아이콘 유니콘 복사하기 ex) f00c
+
+```css
+form input[type="checkbox"] + label:active:before {
+  transform: scale(0);
+}
+```
+
+→ active 효과는 마우스를 누르고 있는 상태에 효과를 줄수있다.
 
 
 

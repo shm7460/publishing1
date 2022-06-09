@@ -77,3 +77,40 @@ a {
 .gnb a:hover:after {
   top: 0;
 }
+
+/*  date-text로 네비게이션 만들기 */
+.gnb3 a {
+  position: relative;
+  display: block;
+  margin-left: 20px;
+  width: 400px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.gnb3 a:before,
+.gnb3 a:after {
+  position: absolute;
+  content: attr(data-text);
+  width: inherit;
+  height: inherit;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  transition: 0.3s;
+}
+.gnb3 a:before {
+  background-color: crimson;
+  top: 0;
+}
+.gnb3 a:after {
+  background-color: dodgerblue;
+  top: 100%;
+}
+
+.gnb3 a:hover:before {
+  top: -100%;
+}
+.gnb3 a:hover:after {
+  top: 0;
+}

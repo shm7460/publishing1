@@ -44,3 +44,85 @@ a {
 .gnb li a:hover:before {
   width: 100%;
 }
+
+/* 다른 버전hover 효과 */
+.gnb2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.gnb2 a {
+  position: relative;
+  padding-bottom: 5px;
+  margin: 10px;
+}
+.gnb2 a:nth-child(1):before {
+  /* before는 inline 속성이지만 포지션을 줘서 inline-block 성질로 변해서 너비를 가질수있게됨 */
+  position: absolute;
+  content: "";
+  background-color: crimson;
+  height: 1px;
+  width: 0%;
+  bottom: 0;
+  transition: 0.3s;
+}
+.gnb2 a:nth-child(2):before {
+  position: absolute;
+  content: "";
+  background-color: crimson;
+  height: 1px;
+  width: 0%;
+  bottom: 0;
+  right: 0;
+  transition: 0.3s;
+}
+.gnb2 a:nth-child(1):hover:before,
+.gnb2 a:nth-child(2):hover:before {
+  width: 100%;
+}
+.gnb2 a:nth-child(3):before {
+  position: absolute;
+  content: "";
+  background-color: crimson;
+  height: 3px;
+  width: 3px;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s;
+}
+
+.gnb2 a:nth-child(3):hover:before {
+  left: calc(100% - 3px);
+}
+
+.gnb2 a:nth-child(4):before {
+  position: absolute;
+  content: "";
+  background-color: crimson;
+  height: 1px;
+  width: 0px;
+  bottom: 0;
+  transition: 0.3s;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gnb2 a:nth-child(4):hover:before {
+  width: 100%;
+}
+
+.gnb2 a:nth-child(5):before {
+  position: absolute;
+  content: "";
+  background-color: crimson;
+  height: 1px;
+  width: 100%;
+  bottom: 0;
+  transition: 0.3s;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gnb2 a:nth-child(5):hover:before {
+  width: 0;
+}

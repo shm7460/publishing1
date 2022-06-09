@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="check.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="custom">
+      <input type="checkbox" id="agree-chk" />
+      <label for="agree-chk">
+        <em></em>약관을 충분히 이해하였으며 동의 합니다.</label
+      >
+    </div>
+
+    <div class="grade">
+      <!-- 동일한 name값을 가지고 있어서 중복선택 막음 -->
+      <input type="radio" name="grade" id="grade-chk1" /><label for="grade-chk1"
+        ><em></em>초등학생</label
+      >
+      <input type="radio" name="grade" id="grade-chk2" /><label for="grade-chk2"
+        ><em></em>중학생</label
+      >
+      <input type="radio" name="grade" id="grade-chk3" /><label for="grade-chk3"
+        ><em></em>고등학생</label
+      >
+      <input type="radio" name="grade" id="grade-chk4" /><label for="grade-chk4"
+        ><em></em>대학생</label
+      >
+    </div>
+
+    <form>
+      <input type="checkbox" id="chk1" checked />
+      <label for="chk1">HTML</label>
+      <input type="checkbox" id="chk2" />
+      <label for="chk2">CSS</label>
+      <input type="checkbox" id="chk3" />
+      <label for="chk3">Js</label>
+      <input type="checkbox" id="chk4" />
+      <label for="chk4">jQuery</label>
+    </form>
+  </body>
+</html>

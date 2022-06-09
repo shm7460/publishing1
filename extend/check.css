@@ -1,0 +1,89 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+.custom input[type="checkbox"] {
+  /* none 사라져도 기능은 동일하다 */
+  display: none;
+}
+.custom label {
+  cursor: pointer;
+}
+.custom label em {
+  /* border: 1px solid red; */
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  /* inline요소끼리 중앙을 맞출때 사용 */
+  vertical-align: bottom;
+  margin-right: 5px;
+  background: url(images/checkbox-02.png) no-repeat;
+  /* x:left , y:center */
+  background-position: left center;
+}
+.custom input[type="checkbox"]:checked + label em {
+  background-position: right center;
+}
+
+.grade {
+  margin-left: 20px;
+}
+.grade input[type="radio"] {
+  display: none;
+}
+.grade label {
+  cursor: pointer;
+}
+.grade label em {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  vertical-align: bottom;
+  margin-right: 5px;
+  background: url(images/radio-01.png) no-repeat;
+  background-position: left center;
+}
+/* +인접선택자 사용  */
+.grade input[type="radio"]:checked + label em {
+  background-position: right center;
+}
+.grade input[type="radio"]:checked + label {
+  color: hotpink;
+}
+
+form {
+  margin-left: 10px;
+}
+form input[type="checkbox"] {
+  display: none;
+}
+form label {
+  display: block;
+}
+form label:before {
+  display: inline-block;
+  content: "\f058";
+  font-family: "Font Awesome 6 Free";
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: transparent;
+  color: transparent;
+  transition: 0.2s;
+}
+
+form input[type="checkbox"]:checked + label:before {
+  color: black;
+  border-color: transparent;
+}
+form input[type="checkbox"] + label:active:before {
+  transform: scale(0);
+}
