@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-image: url(images/snow-photo.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+body:before {
+  position: absolute;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* form요소보다 밑으로 가기위해 */
+  z-index: -1;
+}
+.search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.search h1 {
+  font-size: 30px;
+  color: white;
+}
+
+.search input[type="submit"],
+.search input[type="text"] {
+  padding: 15px;
+  border: none;
+  outline: none;
+}
+.search input[type="text"] {
+  width: 300px;
+  margin-right: -7px;
+  border-radius: 40px 0 0 40px;
+  padding-left: 20px;
+}
+
+.search input[type="submit"] {
+  width: 100px;
+  border-radius: 0 40px 40px 0;
+  cursor: pointer;
+  background-color: orange;
+  color: white;
+}
+.search input[type="submit"]:hover {
+  background-color: darkgoldenrod;
+}
+input[type="text"]::placeholder {
+  font-size: 15px;
+  font-style: italic;
+}

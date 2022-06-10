@@ -1,0 +1,75 @@
+a {
+  text-decoration: none;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  position: relative;
+  /* 이미지가 부모요소고 이미지크기가 300x400이다 */
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.content {
+  position: absolute;
+  /* 부모요소의 너비 높이를 받아옴 */
+  width: inherit;
+  height: inherit;
+  /* top이 100%라는 말은 부모요소의 높이가 끝나는 지점부터 자식요소가 시작된다 */
+  top: 100%;
+  left: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  padding-top: 180px;
+  transition: 0.5s;
+}
+/* card에게 nth-child 해야지 불러와진다 */
+.card:nth-child(1) .content {
+  /* 그라데이션이 위로 올라가고 처음색은 네이비이고 끝나는색은 투명색이다 */
+  background: linear-gradient(to top, navy, transparent);
+}
+.card:nth-child(2) .content {
+  background: linear-gradient(to top, pink, transparent);
+}
+.card:nth-child(3) .content {
+  background: linear-gradient(to top, olive, transparent);
+}
+
+.content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.content h2 span {
+  display: block;
+  font-size: 14px;
+  color: gold;
+}
+
+.sns a {
+  display: inline-block;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid white;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+}
+.card:hover .content {
+  top: 0;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}

@@ -1446,6 +1446,20 @@ background-color: transparent;  //배경투명도 적용하기
 
 
 
+### - 개인 프로필 카드 UI 호버 이펙트
+
+파일경로: order/ profile.html, profile.css
+
+```css
+/* card에게 nth-child 해야지 불러와진다 */
+.card:nth-child(1) .content {
+  /* 그라데이션이 위로 올라가고 처음색은 네이비이고 끝나는색은 투명색이다 */
+  background: linear-gradient(to top, navy, transparent);
+
+```
+
+
+
 ## 05확장선택자
 
 ### - 애니메이션 햄버거 버튼 만들기
@@ -1677,6 +1691,52 @@ input[id="tab3"]:checked ~ .tabs .items {
 
 
 
+### - 로그인 화면
+
+파일경로: extend/ login.html, login.css
+
+```css
+.login input[type="email"]::placeholder,
+.login input[type="password"]::placeholder {
+  opacity: 1;
+  transition: 0.3s;
+}
+.login input[type="email"]:focus::placeholder,
+.login input[type="password"]:focus::placeholder {
+  opacity: 0;
+  /* 존재자체도 사라지게함 */
+  visibility: hidden;
+}
+```
+
+→ placeholder에게 클릭하면 사라지는 효과주기
+
+```css
+.login input[type="email"] {
+  background: white url(images/icon-email.png) no-repeat center left 10px;
+}
+```
+
+→ input에게 이미지 넣기
+
+```css
+.login p {
+  /* 자식요소가 float를 가지면 부모요소 p는 높이 값을 잃어 버린다 그래서  overflow: hidden 해줘야한다 */
+  overflow: hidden;
+}
+.login p label {
+  float: left;
+  cursor: pointer;
+}
+.login p a {
+  float: right;
+}
+```
+
+→ 자식요소에게 float 주면 부모요소의 높이는 사라진다 그래서 높이값을 줘야한다
+
+
+
 ## 06PureScreen
 
 ### - 풀스크린 탭 콘텐츠 슬라이더 프로토타입
@@ -1717,17 +1777,46 @@ background-attachment: fixed;
 
 
 
+### - 배경 이미지 풀스크린 검색창
 
+파일경로: purescreen/ search.html, search.css
 
+```css
+  background-image: url(images/abc.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+```
 
+→ 이미지 가득 채우기
 
+```css
+/* form요소보다 밑으로 가기위해 */
+z-index: -1;
+```
 
+→ 레이어 위치를 z-index로 순서정하기
 
+```css
+.search input[type="submit"],
+.search input[type="text"] {
+  padding: 15px;
+  border: none;
+  outline: none;
+}
+```
 
+→ input을 type으로 구분해서 선언해주면 굳이 class명을 주지않아도된다
 
+```css
+input[type="text"]::placeholder {
+  font-size: 15px;
+  font-style: italic;
+}
+```
 
-
-
+→ input안에 있는 글자 꾸밀때는 placeholder로 꾸며주면된다
 
 
 
