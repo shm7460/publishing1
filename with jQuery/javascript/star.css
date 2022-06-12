@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.star-rating {
+  background-color: #333;
+  width: 250px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+}
+.star-rating div {
+  float: left;
+  width: 50%;
+}
+.stars {
+}
+.stars i {
+  font-size: 18px;
+  cursor: pointer;
+}
+.stars i.active {
+  color: yellow;
+  text-shadow: 0 0 5px yellow;
+}
+.print {
+  color: white;
+}
+.print img {
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-top: -3px;
+}

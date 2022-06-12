@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>javascript var, val(),if</h1>
+      <div class="login">
+        <h2>20세 이상 성인인증 체크 제이쿼리 if 조건문</h2>
+        <input id="id" type="text" placeholder="나이를 숫자로 입력" />
+        <button>성인인증</button>
+      </div>
+    </div>
+
+    <script>
+      $(".login button").click(function () {
+        const num = $("#id").val();
+        if (num == "") {
+          alert("나이를 입력하세요.");
+        } else if (num < 20) {
+          alert("미성년자 입니다");
+        } else if (num >= 20) {
+          alert("성인입니다");
+        } else {
+          alert("숫자로 입력해주세요");
+        }
+      });
+    </script>
+  </body>
+</html>

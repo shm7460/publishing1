@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4f4f4;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+section {
+  width: 80%;
+}
+.tab-inner {
+  margin-top: 30px;
+}
+.btn {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  margin-left: 10px;
+}
+.btn li {
+  float: left;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #eee;
+  border-right: 1px solid #ddd;
+  padding: 5px;
+  /* hover효과를 했을때 border로인해 덜컹 거리는 것을  없애기 위해 */
+  border-top: 2px solid transparent;
+}
+.btn li:last-child {
+  width: 180px;
+  border: none;
+}
+.btn li.active,
+.btn li:hover {
+  background-color: white;
+  border-top: 2px solid tomato;
+}
+.tabs div {
+  background-color: white;
+  padding: 20px;
+  display: none;
+}
+.tabs div.active {
+  display: block;
+}
+
+/* Tab Content  */
+.tabs div h2 {
+  text-align: center;
+}
+.tabs div img {
+  /* img 다음으로 오는 아이들은 가로로 옆으로 온다 */
+  float: left;
+  margin-right: 20px;
+}
+.tabs div p {
+  /* 문단이 튀어나오지않게 정리해줌 */
+  overflow: hidden;
+}
+
+/* Heading */
+.heading h1 {
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.heading h1 span {
+  color: tomato;
+}
+.heading input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+  /* background-color: white; */
+  /* background속성은 한줄에 넣어줘야한다 */
+  /* center:수직 중앙 left 5px: 5px떨어져서 수평 왼쪽정렬해라  */
+  background: white url("images/search-icon.png") no-repeat center left 5px;
+  background-size: 23px;
+  padding-left: 35px;
+}
+.heading input[type="text"]::placeholder {
+  font-style: italic;
+  transition: 0.3s;
+}
+.heading input[type="text"]:focus::placeholder {
+  opacity: 0;
+}

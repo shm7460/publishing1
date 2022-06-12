@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="style1.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="testimonial-section">
+      <h1><span>codingworks</span> publishing online class with inflearm</h1>
+      <div class="testimonial-pic">
+        <img src="images/face-01.jpg" data-alt="tab1" />
+        <img src="images/face-02.jpg" data-alt="tab2" />
+        <img src="images/face-03.jpg" data-alt="tab3" />
+        <img src="images/face-04.jpg" data-alt="tab4" />
+      </div>
+      <div class="testimnial">
+        <div class="content active" id="tab1">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+            quibusdam dolorum, nisi eaque enim officiis eligendi voluptate
+            distinctio. Excepturi odio omnis, architecto repellendus repellat,
+            qui mollitia, ullam non perspiciatis dolorem soluta debitis a
+            tempora reprehenderit ipsam similique incidunt quibusdam illo? Eius,
+            quae esse a neque consequatur ipsa. Culpa, magni repellendus unde
+            qui tempora aliquam consequatur doloremque quod laborum. Expedita
+            laboriosam laudantium quis accusantium temporibus non nam similique
+            dignissimos at, amet enim quam obcaecati? Obcaecati sit error soluta
+            eius reprehenderit nobis.
+          </p>
+          <p class="job">Sally, web Desginer</p>
+        </div>
+        <div class="content" id="tab2">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+            quibusdam dolorum, nisi eaque enim officiis eligendi voluptate
+            distinctio. Excepturi odio omnis, architecto repellendus repellat,
+            qui mollitia, ullam non perspiciatis dolorem soluta debitis a
+            tempora reprehenderit ipsam similique incidunt quibusdam illo? Eius,
+            quae esse a neque consequatur ipsa. Culpa, magni repellendus unde
+            qui tempora aliquam consequatur doloremque quod laborum. Expedita
+            laboriosam laudantium quis accusantium temporibus non nam similique
+            dignissimos at, amet enim quam obcaecati? Obcaecati sit error soluta
+            eius reprehenderit nobis.
+          </p>
+          <p>Ally, web Desginer</p>
+        </div>
+        <div class="content" id="tab3">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+            quibusdam dolorum, nisi eaque enim officiis eligendi voluptate
+            distinctio. Excepturi odio omnis, architecto repellendus repellat,
+            qui mollitia, ullam non perspiciatis dolorem soluta debitis a
+            tempora reprehenderit ipsam similique incidunt quibusdam illo? Eius,
+            quae esse a neque consequatur ipsa. Culpa, magni repellendus unde
+            qui tempora aliquam consequatur doloremque quod laborum. Expedita
+            laboriosam laudantium quis accusantium temporibus non nam similique
+            dignissimos at, amet enim quam obcaecati? Obcaecati sit error soluta
+            eius reprehenderit nobis.
+          </p>
+          <p>Sally, web Desginer</p>
+        </div>
+        <div class="content" id="tab4">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+            quibusdam dolorum, nisi eaque enim officiis eligendi voluptate
+            distinctio. Excepturi odio omnis, architecto repellendus repellat,
+            qui mollitia, ullam non perspiciatis dolorem soluta debitis a
+            tempora reprehenderit ipsam similique incidunt quibusdam illo? Eius,
+            quae esse a neque consequatur ipsa. Culpa, magni repellendus unde
+            qui tempora aliquam consequatur doloremque quod laborum. Expedita
+            laboriosam laudantium quis accusantium temporibus non nam similique
+            dignissimos at, amet enim quam obcaecati? Obcaecati sit error soluta
+            eius reprehenderit nobis.
+          </p>
+          <p>Sally, web Desginer</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(".testimonial-pic img").click(function () {
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+
+        $(".testimnial .content").removeClass("active");
+        // # + 이미지를클릭할때 그이미지의 data-alt 값을 더한다는 뜻이고 그러면 content의 id값이 만들어진다
+        $("#" + $(this).attr("data-alt")).addClass("active");
+      });
+    </script>
+  </body>
+</html>
