@@ -202,3 +202,81 @@ $(".btn li").click(function () {
   </body>
 ```
 
+
+
+# 03 마우스 올리면 배경이미지 변경하기 
+
+파일경로: mouse/ mouse.html, mouse.css
+
+```js
+<script>
+      $(".navi li").mouseenter(function () {
+        // data-image는 속성이기때문에 ""해줘야함
+        const changeImage = $(this).attr("data-image");
+        $(".photo").css({
+          // 배경이미지를 css로 변경할때
+          "background-image": "url(" + changeImage + ")",
+        });
+      });
+
+      $(".navi li").mouseleave(function () {
+        $(".photo").css({
+          "background-image": "",
+        });
+      });
+</script>
+```
+
+
+
+# 04 쇼핑몰 아이템 UI 호버 이펙트
+
+파일경로: uihover/ shopping.html, shopping.css
+
+```css
+.detail {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+```
+
+→  position:absolute가 들어가면 dispaly속성이 inlin-block으로 바뀜 그래서 너비를 줘야됨
+
+```js
+$(".size span, .color span").click(function () {
+    $(this).addClass("active");
+    $(this).siblings().removeClass("active");
+});
+$(".like i").click(function () {
+    $(this).toggleClass("active");
+});
+```
+
+→ addClass removeClass / siblings / toggleClass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

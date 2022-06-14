@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="item">
+      <img src="images/model-female.png" alt="" />
+      <div class="detail">
+        <div class="title">
+          <span><em>Nightgown</em> Women's Designer Wear</span>
+          <span>$55.99</span>
+        </div>
+        <div class="info">
+          <div class="size">
+            <label>Sixe</label>
+            <span>XS</span>
+            <span>S</span>
+            <span>M</span>
+            <span>L</span>
+            <span>XL</span>
+          </div>
+          <div class="color">
+            <label>Color</label>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span class="like">
+            <i class="fa-solid fa-heart"></i>
+          </span>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <script>
+      $(".size span, .color span").click(function () {
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+      });
+      $(".like i").click(function () {
+        $(this).toggleClass("active");
+      });
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/fed145381f.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

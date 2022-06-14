@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+/* item */
+.item {
+  position: relative;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.detail {
+  position: absolute;
+  background-color: #f8f8f8;
+  /* position:absolute가 들어가면 dispaly속성이 inlin-block으로 바뀜 그래서 너비를 줘야됨*/
+  width: 100%;
+  height: 250px;
+  bottom: -180px;
+  left: 0;
+  transition: 0.5s;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.item:hover .detail {
+  bottom: 0;
+}
+.item img {
+  transition: 0.3s;
+}
+.item:hover img {
+  filter: blur(2px);
+}
+/* title */
+.title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #555;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.title em {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  color: black;
+}
+.title span:last-child {
+  color: crimson;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: -5px;
+}
+
+.info {
+  position: relative;
+  margin-top: 10px;
+  font-weight: 600;
+}
+/* Size */
+.size {
+  margin-bottom: 10px;
+}
+.size label,
+.color label {
+  display: block;
+  padding-bottom: 5px;
+}
+
+.size span,
+.color span {
+  transition: 0.3s;
+}
+
+.size span {
+  font-size: 12px;
+  margin-right: 3px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
+  padding: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.size span.active,
+.size span:hover {
+  background-color: black;
+  color: white;
+}
+
+.color span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  padding: 2px;
+  cursor: pointer;
+}
+.color span.active {
+  border-radius: 50%;
+}
+.color span:nth-of-type(1) {
+  background-color: tomato;
+}
+.color span:nth-of-type(2) {
+  background-color: pink;
+}
+.color span:nth-of-type(3) {
+  background-color: navy;
+}
+.color span:nth-of-type(4) {
+  background-color: palegreen;
+}
+.color span:nth-of-type(5) {
+  background-color: gray;
+}
+.add-cart {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  width: 100%;
+  padding: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+.add-cart:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Like */
+.like i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgb(221, 221, 221);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.like i.active {
+  color: tomato;
+}
