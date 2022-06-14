@@ -256,9 +256,33 @@ $(".like i").click(function () {
 
 
 
+# 05 어코디언 콘텐츠 슬라이드
 
+파일경로: slider/index.html, style1.css
 
+slideUp(), slideDown(), fadeIn(), fadeOut()은 일반적으로 stop()와 함께 사용한다
 
+```css
+/*>는 content 바로밑에 div를 선택한다  */
+.content > div {
+}
+```
+
+```js
+$(".title").click(function () {
+    $(this).addClass("active");
+    $(this).siblings(".title").removeClass("active");
+    // .stop()는 애니메이션 동작을 끊어줘서 여러번 반복안하게 해줌
+    $(this).siblings(".desc").stop().slideUp(); //1번 형제들을 먼저 위로 접기
+    // .next는 바로옆에 아이를 선택함
+    $(this).next(".desc").stop().slideDown(); //2번 선택한 .desc만 내리기
+
+    const dataImage = $(this).attr("data-image");
+    $(".image img").attr("src", dataImage);
+});
+```
+
+→ .stop / .next 
 
 
 

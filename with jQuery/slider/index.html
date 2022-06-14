@@ -8,5 +8,98 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <section>
+      <article>
+        <div class="heading">
+          <span
+            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
+            iusto</span
+          >
+          <h1>
+            <em>Lorem</em>, ipsum <b> dolor</b> sit amet consectetur adipisicing
+            elit. Mollitia voluptatibus totam voluptatem.
+          </h1>
+        </div>
+        <div class="content">
+          <div class="accordion">
+            <div class="title" data-image="images/app-capture-01.png">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <i class="fa-solid fa-angle-right"></i>
+            </div>
+            <div class="desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              numquam enim dolores iste fugiat vitae deserunt, quaerat
+              voluptatibus id consequatur!
+              <br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              numquam enim dolores iste fugiat vitae deserunt, quaerat
+              voluptatibus id consequatur!
+            </div>
+            <div class="title" data-image="images/app-capture-02.png">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <i class="fa-solid fa-angle-right"></i>
+            </div>
+            <div class="desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              numquam enim dolores iste fugiat vitae deserunt, quaerat
+              voluptatibus id consequatur!
+              <br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              numquam enim dolores iste fugiat vitae deserunt, quaerat
+              voluptatibus id consequatur!
+            </div>
+            <div class="title" data-image="images/app-capture-03.png">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <i class="fa-solid fa-angle-right"></i>
+            </div>
+            <div class="desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              numquam enim dolores iste fugiat vitae deserunt, quaerat
+              voluptatibus id consequatur!
+              <br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              numquam enim dolores iste fugiat vitae deserunt, quaerat
+              voluptatibus id consequatur!
+            </div>
+            <div class="title" data-image="images/app-capture-04.png">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <i class="fa-solid fa-angle-right"></i>
+            </div>
+            <div class="desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              numquam enim dolores iste fugiat vitae deserunt, quaerat
+              voluptatibus id consequatur!
+              <br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              numquam enim dolores iste fugiat vitae deserunt, quaerat
+              voluptatibus id consequatur!
+            </div>
+          </div>
+          <div class="image">
+            <img src="images/app-capture-01.png" alt="" />
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <script>
+      $(".title").click(function () {
+        $(this).addClass("active");
+        $(this).siblings(".title").removeClass("active");
+        // .stop()는 애니메이션 동작을 끊어줘서 여러번 반복안하게 해줌
+        $(this).siblings(".desc").stop().slideUp(); //1번 형제들을 먼저 위로 접기
+        // .next는 바로옆에 아이를 선택함
+        $(this).next(".desc").stop().slideDown(); //2번 선택한 .desc만 내리기
+
+        const dataImage = $(this).attr("data-image");
+        $(".image img").attr("src", dataImage);
+      });
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/fed145381f.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
