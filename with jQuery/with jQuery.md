@@ -286,6 +286,264 @@ $(".title").click(function () {
 
 
 
+# 비디오 백그라운드를 활용한 랜딩페이지
+
+```css
+<div class="video-frame">
+        <video
+          src="images/video-female.mp4"
+          autoplay
+          muted
+          loop
+          poster="images/placeholder-female.jpg"
+        ></video>
+      </div>
+```
+
+→ autoplay: 자동재생 / muted: 음소거 / loop:무한반복 / poster:이미지
+
+poster는 비디오가 로딩에 문제가 있어서 보여지지 않을때 대신하여 이미지를 보여주는 역할
+
+픽사베이 무료 동영상: https://pixabay.com/ko/videos/ 
+
+```css
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+```
+
+→ css에서 구글폰트 import 해주기
+
+```css
+.video-frame video {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+```
+
+→ 여기서  min-width와 min-height의 의미는 영상이 작더라도 가득채우라는 뜻으로 해석
+
+ z-index는 position: relative, absolute, fixed가 없으면 작동을 못함
+
+```css
+.heading p {
+  font-size: 1.2em;
+}
+```
+
+→ em은 상대적 사이즈이다. 기본 폰트 사이즈는16px이다 
+
+1.2em은 20%정도 커진거닌깐 18px정도 될수있다.
+
+```css
+animation-fill-mode: both;
+```
+
+ → 애니메이션 효과가 0에서 100으로 했으면 다시 0으로 스탠 바이 하지마라라는 뜻
+
+```css
+.trigger {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  border: 1px solid white;
+  width: 40px;
+  height: 20px;
+}
+.trigger span {
+  position: absolute;
+}
+```
+
+ →  .trigger에게 position: absolute가 적용되어 있기때문에 span(자식요소)을 위해서 
+
+다시  position: relative을 할 필요가 없다 이미 position: absolute를 했기때문에  relative가 포함되어있다
+
+ → **position: absolute가 적용이되면** line 요소든 block요소든 **inline-block**으로 변경되어서 크기값을 가질수있다 (inline-block는 콘텐츠 양만큼의 너비만 가지고 있는다 그래서 width를 줘야됨)
+
+```css
+.gnb a {
+  display: block;
+  padding: 10px;
+  color: white;
+  font-size: 60px;
+  font-family: "Raleway", sans-serif;
+  transition: 0.3s;
+  animation: gnb 0.5s linear;
+  /* 최초에는 안보이는 상태야 된다 */
+  opacity: 0;
+  /* 다시 애니메이션 효과가 0%으롣 돌아가지 않게 해줌 */
+  animation-fill-mode: both;
+}
+```
+
+ → 여기서 중요한 효과 animation-fill , opacity: 0
+
+```css
+.video-frame:before {
+  position: absolute;
+  content: "";
+  background: linear-gradient(-135deg, tomato, transparent);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+```
+
+ → 비디오 위에 그라데이션 주기
+
+```css
+<audio src="images/piano-bgm.mp3" autoplay loop controls></audio>
+```
+
+ → audio태그로 오디오 소리넣기
+
+ → autoplay loop controls : 자동재생 무한반복 소리제어
+
+
+
+# 로그인 화면 UI 디자인
+
+```html
+<head>
+<link rel="icon" href="images/favicon.png" />
+</head>
+```
+
+ → 홈페이지 이름옆에 아이콘넣기
+
+```css
+section {
+  /* header의 높이를 빼주고 100vh 해줘야 스크롤이 안생김 */
+  height: calc(100vh - 60px);
+}
+```
+
+→ calc() : 사칙연산자가능
+
+**nth-child()와 nth-of-type()**
+
+```html
+<div class="login-type">
+    <h1>로그인</h1>
+    <a class="btn" href="#">휴대폰 번호로 로그인</a>
+    <span class="or-text">또는</span>
+    <a class="btn" href="#">이메일로 로그인</a>
+    <a class="btn" href="#">네이버로 로그인</a>
+    <a class="btn" href="#">페이스북으로 로그인</a>
+    <a class="btn" href="#">라인으로 로그인</a>
+</div>
+```
+
+```css
+.btn:nth-child(2) {
+  background-color: white;
+}
+```
+
+→ .btn을 선택해서 nth-child(1)했지만 적용이 안된다. 왜냐하면 **1번은 h1태그가 되기때문에** 2번으로 적용시켜야지 .btn클래스에 적용됨
+
+```css
+.btn:nth-of-type(1) {
+  background-color: white;
+}
+```
+
+→ 그래서 태그도 체크하는 nth-of-type()를 해주면 원하는 태그로 순서대로 적용시킬수 있다
+
+```css
+background: white url(images/logo-mobile.png) no-repeat center left 13px;
+```
+
+```css
+background-color: white;
+background-image: url(images/logo-mobile.png);
+background-repeat: no-repeat;
+background-position: center left 13PX;  //13px 떨어져 왼쪽에 위치한다는뜻 
+```
+
+→ 둘다 같은코드임 한줄이냐 여러줄이냐 차이
+
+대신에 한줄로 background를 넣을때는 **배경색도 같이 앞에** 넣어줘야된다 아니면 덮어져서 안보임
+
+
+
+```html
+<input type="checkbox" id="chk" />
+	<label for="chk"> 로그인 상태 유지 </label>
+```
+
+→ 굳이 체크박스를 클릭하지않아도 글자를 클릭해도 체크가된다.**input의 id와 label의 for를 연결 해줘야된다** 
+
+ **before, after**
+
+```css
+.or-text:before {
+  position: absolute;
+  content: "";
+  background-color: lightgrey;
+  height: 1px;
+  width: 45%;
+}
+```
+
+→ before, after은 inline요소이다 대신에 position이 들어가면 inline-block으로 바뀌어서 크기값을 가질수있다
+
+
+
+# Netflix FAQ 어코디언 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

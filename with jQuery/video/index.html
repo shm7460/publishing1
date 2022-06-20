@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="video-frame">
+        <video
+          src="images/video-sky.mp4"
+          autoplay
+          muted
+          loop
+          poster="images/placeholder-female.jpg"
+        ></video>
+      </div>
+      <div class="logo">
+        <img src="images/logo.png" alt="" />
+      </div>
+      <div class="heading">
+        <h1><span>Wave Ocean</span>The World's Ocean</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+          doloremque non vero! Ipsam ipsa eligendi fugiat excepturi cupiditate
+          esse optio expedita dolore? Suscipit sed corrupti placeat possimus
+          mollitia quidem similique?
+        </p>
+        <a class="btn-book" href="#">Book Now</a>
+        <a class="btn-learn" href="#">Learn More</a>
+      </div>
+      <div class="anniversary">
+        <em>Anniversary</em>
+        <span>60</span>
+      </div>
+      <div class="trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="modal-gnb">
+        <div class="gnb">
+          <a href="#">Attractions</a>
+          <a href="#">Hotels & Spa</a>
+          <a href="#">Shop & Dine</a>
+          <a href="#">Celebrate</a>
+          <a href="#">Promotions</a>
+        </div>
+      </div>
+    </div>
+    <audio id="myAudio" src="images/piano-bgm.mp3" autoplay loop></audio>
+
+    <script>
+      // Trigger
+      $(".trigger").click(function () {
+        $(this).toggleClass("active");
+        $(".modal-gnb").fadeToggle();
+      });
+      //   Audio Controls
+      const bgm = document.getElementById("myAudio");
+      bgm.volume = 0.2; //Audio Volume : 0~1 사이에 해주면됨
+    </script>
+  </body>
+</html>
