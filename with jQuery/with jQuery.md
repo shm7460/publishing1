@@ -494,41 +494,153 @@ background-position: center left 13PX;  //13px 떨어져 왼쪽에 위치한다�
 
 # Netflix FAQ 어코디언 
 
+```html
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="custom.js"></script>
+</head>
+```
+
+→ jquery가 먼저오고 js파일이 나중에 있어야작동됨
 
 
 
+**js를 scr로 script 하는 방법 (head/body)**
+
+body안에 `<script src="custom.js"></script>` 를 해주면 
+
+js파일에 `$("").click(function () {});`html안에 js 넣는 방식으로 작성하면되지만
+
+head안에 `<script src="custom.js"></script>` 를 해주면 
+
+js파일에 `$(function () {$("").click(function () {});});` 작성해야된다 여기서 
+
+`$(function(){ })`의 의미는 documentready 라는 뜻이다 html파일을 먼저일고 js를 실행 하겠다는 의미이다
 
 
 
+**slideUp**
+
+```js
+$(function () {
+  $(".accordion .title").click(function () {
+    $(this).siblings(".accordion .content").slideUp();   //1번 
+    $(this).next().stop().slideToggle();        //2번
+  });
+});
+```
+
+→ 1번은 클릭한곳의 형제요소인 컨텐츠만 슬라이드접겠다는 의미이고 2번은 클릭한 요소의 다음인 컨텐츠를 슬라이드 토글로 내리겠다 의미 그래서 1번먼저 작성을해줘야 작동인된다
+
+→ 1번은 나중에 작성하면 2번에서 작동을 할려고해도 1번이 작동을 못하게 만든다 
+
+`.slideToggle("fast")` : 괄호안에 fast, slow, 1000(1초) 등 입력해서 동작빠르기를 설정할수있다
 
 
 
+**before,after**는 **inline요소**라서 **transform**이되지 않는다 그래서 display로 inline-block이나 block을 해줘야 적용이된다
+
+```css
+button:after {
+  content: "\e93f";
+  font-family: xeicon;
+  font-size: 30px;
+  display: inline-block;
+  transform: translateY(5px);
+}
+```
 
 
 
+# 밀리의 서재 (FAQ)
+
+```js
+$(function () {
+  //   $(".accordion-item .content").eq(0).show();
+  $(".accordion-item .title").click(function () {
+    $(this).next().stop().slideToggle(300);
+    $(this).toggleClass("active");
+  });
+  $(".accordion-item .content").click(function () {
+    $(this).stop().slideUp(300);
+  });
+});
+```
 
 
 
+# modal
+
+ **jquery**
+
+```js
+$(".notice").click(function () {
+        $(".modal").fadeIn();
+      });
+      $(".btn-guide").click(function () {
+        $(".modal").fadeOut();
+ });
+```
+
+→ jquery로fade로 효과주기
+
+```js
+ $(".notice").click(function () {
+        $(".modal").addClass("active");
+      });
+      $(".btn-close").click(function () {
+        $(".modal").removeClass("active");
+  });
+```
+
+→ jquery로 class 추가로 효과주기
 
 
 
+ **javascriprt**
+
+```js
+const modal = document.getElementById("modal-notice");
+      function openModal() {
+        modal.classList.add("active");
+      }
+      function closeModal() {
+        modal.classList.remove("active");
+ }
+```
+
+```html
+<a onclick="openModal()" class="notice" href="#">
+    Open Fade-In Modal with jQuery
+</a>
+<a onclick="closeModal()" class="btn-guide" href="#">
+    Open Guide
+</a>
+```
+
+→ javascriprt로 작성하고 html에서 onclick() 넣어주기
 
 
 
+**:target 가상클래스 사용하기**
 
+```html
+<a class="notice" href="#modal-notice">
+    Open Fade-In Modal with jQuery
+</a>
+<div id="modal-notice" class="modal">
+</div>
+```
 
+```css
+.modal:target {
+  display: block;
+}
+```
 
+→  href의 #다음에 오는 이름이랑 div의 id이름이랑 같으면 서로 연결이된다 
 
-
-
-
-
-
-
-
-
-
-
+→짝궁이 된걸 실행시켜주는게 :target 이다, a태그를 눌렀을때 연결된 div에게 css가 적용이된다 
 
 
 

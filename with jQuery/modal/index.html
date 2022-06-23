@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a onclick="openModal()" class="notice" href="#modal-notice"
+      >Open Fade-In Modal with jQuery</a
+    >
+    <div id="modal-notice" class="modal">
+      <div class="modal-content">
+        <a class="btn-close" href="#">x</a>
+        <h2>Welcome to Teams!</h2>
+        <img src="images/group.png" alt="" />
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis ipsa
+          deleniti architecto fugiat laboriosam enim, commodi sed quam, officiis
+          excepturi quae numquam cumque accusamus modi at est in quisquam
+          laborum!
+        </p>
+        <a onclick="closeModal()" class="btn-guide" href="#">Open Guide</a>
+      </div>
+    </div>
+
+    <!-- modal 01 jquery
+    <script>
+      $(".notice").click(function () {
+        $(".modal").fadeIn();
+      });
+      $(".btn-guide").click(function () {
+        $(".modal").fadeOut();
+      });
+    </script> -->
+
+    <!-- modal 02 jquery
+    <script>
+      $(".notice").click(function () {
+        $(".modal").addClass("active");
+      });
+      $(".btn-close").click(function () {
+        $(".modal").removeClass("active");
+      });
+    </script> -->
+
+    <!-- modal 03 javascript
+    <script>
+      const modal = document.getElementById("modal-notice");
+      function openModal() {
+        modal.classList.add("active");
+      }
+      function closeModal() {
+        modal.classList.remove("active");
+      }
+    </script> -->
+  </body>
+</html>

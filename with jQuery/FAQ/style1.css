@@ -1,0 +1,86 @@
+/* XEION CDN */
+@import url("http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+  color: white;
+}
+.faq {
+  height: 100vh;
+}
+.faq-inner {
+  width: 700px;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 500px;
+}
+.accordion {
+  font-size: 26px;
+}
+.content,
+.title {
+  background-color: #303030;
+  padding: 10px 15px;
+  margin-bottom: 7px;
+}
+.title {
+  cursor: pointer;
+}
+.content {
+  display: none;
+}
+.title.active {
+  background-color: #353b48;
+}
+.accordion .title:after {
+  content: "\e9c5";
+  font-family: xeicon;
+  float: right;
+  margin-top: 5px;
+  transition: 0.3s;
+}
+.accordion .title.active:after {
+  transform: rotate(45deg);
+}
+.newsletter {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  margin-top: 30px;
+}
+.newsletter div {
+  display: flex;
+}
+.newsletter p {
+  font-size: 20px;
+}
+input,
+button {
+  border: none;
+  outline: none;
+  height: 60px;
+  vertical-align: middle;
+  font-size: 20px;
+}
+input {
+  flex: 3;
+}
+button {
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+  flex: 1;
+}
+button:after {
+  content: "\e93f";
+  font-family: xeicon;
+  font-size: 30px;
+  display: inline-block;
+  transform: translateY(5px);
+}
