@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <div class="logo">
+            <img src="images/logo-favicon.png" />
+          </div>
+          <div class="search-box">
+            <i class="open-search xi-search"></i>
+          </div>
+        </nav>
+      </header>
+      <section>
+        <h1>Section Content</h1>
+      </section>
+    </div>
+
+    <div class="modal-search">
+      <i class="close-search xi-close-thin"></i>
+      <div class="search">
+        <div class="field">
+          <input type="search" placeholder="What are you looking for?" />
+          <input type="button" value="Search" />
+        </div>
+        <p class="hash-tag">#happy#hello#hey</p>
+      </div>
+    </div>
+
+    <script>
+      $(".search .field input[type=search]")
+        .focus(function () {
+          $(this).parent().next().css("display", "block");
+        })
+        .blur(function () {
+          $(this).parent().next().css("display", "none");
+        });
+      $(".open-search").click(function () {
+        $(".modal-search").addClass("active");
+      });
+      $(".close-search, section").click(function () {
+        $(".modal-search").removeClass("active");
+      });
+    </script>
+  </body>
+</html>

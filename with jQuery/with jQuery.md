@@ -640,25 +640,79 @@ const modal = document.getElementById("modal-notice");
 
 →  href의 #다음에 오는 이름이랑 div의 id이름이랑 같으면 서로 연결이된다 
 
-→짝궁이 된걸 실행시켜주는게 :target 이다, a태그를 눌렀을때 연결된 div에게 css가 적용이된다 
+→ 짝궁이 된걸 실행시켜주는게 :target 이다, a태그를 눌렀을때 연결된 div에게 css가 적용이된다 
 
 
 
+# Gradient Text
+
+```css
+h1 {
+  background: linear-gradient(to right, tomato, pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+div {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  /* 배경의 범위를 어디까지 할지 정함 */
+  background-clip: border-box;
+  background-color: tomato;
+}
+```
+
+→ 텍스트에 그라디언트 넣기 
 
 
 
+# 검색창 모달
+
+- XEICON: https://xpressengine.github.io/XEIcon/index.html
+
+- input은 before after을 가질수없다
+
+```css
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+```
+
+→ input안에 x버튼 없애는 방법
+
+```css
+input[type="search"]:focus::placeholder {
+  opacity: 0;
+}
+```
+
+→ focus될때 input안에 글자 사라지게 하기 
+
+```js
+$("input[type=search").focus(function () {
+        $(this).parents().next().css("display", "block");
+ });
+      $("input[type=search").blur(function () {
+        $(this).parents().next().css("display", "none");
+ });
+```
+
+→ 마우스가 해제된다: blur  /  컨트롤이 활성화됨 : focus
 
 
 
+#  details와 summary로 만드는 어코디언
 
+```css
+details[open] summary {
+  font-weight: bold;
+}
+details[open] summary:after {
+  transform: rotateX(180deg);
+}
+```
 
-
-
-
-
-
-
-
+→  details을 클릭하면 open이라는 클래스가 자동으로 생성됨 그래서 summary가 오픈됨
 
 
 

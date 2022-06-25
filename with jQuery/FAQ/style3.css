@@ -1,0 +1,38 @@
+/* Fontawesome 4.7 */
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+body {
+  line-height: 1.5em;
+}
+.html-accordion {
+  width: 600px;
+  margin: 50px auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+}
+details {
+  padding: 0.5em 1em;
+}
+details[open] summary {
+  font-weight: bold;
+}
+details[open] summary:after {
+  transform: rotateX(180deg);
+}
+summary {
+  list-style: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+summary:after {
+  content: "\f107";
+  font-family: fontawesome;
+  float: right;
+}
+.detail-content {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+}
+p {
+  margin: 0;
+}

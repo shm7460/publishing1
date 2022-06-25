@@ -1,0 +1,16 @@
+h1 {
+  font-size: 8em;
+  text-transform: uppercase;
+  margin: 0;
+  background: linear-gradient(to right, tomato, pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+div {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  /* 배경의 범위를 어디까지 할지 정함 */
+  background-clip: border-box;
+  background-color: tomato;
+}
