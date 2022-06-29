@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input[type="checkbox"] {
+        display: none;
+      }
+      label {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 30px;
+        height: 20px;
+        display: block;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      span {
+        position: absolute;
+        display: block;
+        height: 2px;
+        background-color: black;
+        width: 100%;
+        transition: 0.3s;
+        z-index: 1;
+      }
+      span:nth-child(1) {
+        top: 0;
+      }
+      span:nth-child(2) {
+        top: 50%;
+      }
+      span:nth-child(3) {
+        top: 100%;
+      }
+      input:checked + label span:nth-child(1) {
+        /* top이 밑으로 내려와줘야 된다 */
+        top: 50%;
+        transform: rotate(45deg);
+      }
+      input:checked + label span:nth-child(2) {
+        opacity: 0;
+      }
+      input:checked + label span:nth-child(3) {
+        top: 50%;
+        transform: rotate(-45deg);
+      }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: pink;
+        transition: 0.3s;
+      }
+      /* 형제요소라서 ~를 사용한다 */
+      input:checked ~ .sidebar {
+        left: 0;
+      }
+      /* 인접해있기때문에 +를 사용한다 */
+      input:checked + label {
+        left: 260px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- input은 안보이게하고 대신 label로 대체한다 -->
+      <input type="checkbox" id="trigger" />
+      <label for="trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="sidebar"></div>
+    </div>
+  </body>
+</html>
