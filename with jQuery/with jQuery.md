@@ -716,6 +716,40 @@ details[open] summary:after {
 
 
 
+# 탭 메뉴 콘텐츠
+
+**:target 가상클래스를 이용해서 탭메뉴 만들기**
+
+```html
+<a href="#tab1">
+  london
+</a>
+-------------------------------------a태그의 #tab1과 id의 tab1이 연결됨----------------------
+<div id="tab1" class="tab">
+    <h2>london</h2>
+    <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam enim
+    non quas, mollitia assumenda tenetur sit necessitatibus nisi, ab
+    fugiat sed expedita vitae obcaecati adipisci, minus natus impedit
+    aspernatur aliquid.
+    </p>
+    <img src="images/city-01.jpg" alt="" />
+</div>
+```
+
+
+
+```css
+.tab:target {
+  opacity: 1;
+  visibility: visible;
+}
+```
+
+→position으로 겹쳐진 내용들이 눈으로 봤을때는 보이지않지만 실제로는 겹쳐져 있어 마지막 내용이 젤위에 있다
+
+그래서  opacity와visibility을 둘다 사용해야 클릭했을때 원하는 부분만 보일수 있다
+
 
 
 
