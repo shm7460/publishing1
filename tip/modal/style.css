@@ -11,12 +11,20 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform은 중복해서 사용하면 안됨 */
+  transform: translate(-50%, -50%) scale(0.7);
   z-index: 1;
+  opacity: 0;
+  transition: 0.3s;
+}
+.modal.active {
+  opacity: 1;
+  /* 스케일로 팝업 느낌이 난다 */
+  transform: translate(-50%, -50%) scale(1);
 }
 .modal-content {
   display: flex;
-  width: 600px;
+  width: 700px;
   background-color: white;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -28,11 +36,12 @@ body {
 }
 .photo {
   flex: 2;
-  background: url(images/office.jpg) no-repeat center right 22px;
+  background: url(images/office.jpg) no-repeat center right;
   background-size: cover;
 }
 .desc {
   flex: 3;
+  text-align: center;
 }
 .overlay {
   position: fixed;
@@ -41,4 +50,71 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: 0.3s;
+  /* 존재하지만 마우스클릭을 받지않겠다  */
+  pointer-events: none;
+  /* 이렇게해도 됨
+  visibility: hidden; */
+}
+.overlay.active {
+  opacity: 1;
+  /* overlay에 active클래스가 추가되면 포인터인벤트가 작동되게한다 */
+  pointer-events: all;
+  /* visibility: visible; */
+}
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+}
+.btn-close:hover {
+  color: black;
+}
+.desc-content input[type="email"] {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 7px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+.desc-content button {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+  padding: 7px;
+}
+.desc-content input[type="email"]::placeholder {
+  color: #bbb;
+  transition: 0.3s;
+}
+.desc-content input[type="email"]:focus::placeholder {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+    width: 100%;
+  }
+  .modal-content > div {
+    width: 350px;
+  }
+  .photo {
+    /* flex로 먼저 자리잡았기 때문에 flex-basis로 값을준다 */
+    flex-basis: 250px;
+  }
+  .btn-close {
+    color: white;
+  }
 }

@@ -9,13 +9,15 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- 클래스 overlay부분이 맨위에서 덮어져서 클릭이안됨 -->
+    <button class="btn-open">뉴스레터 구독하기</button>
     <div class="modal">
       <div class="modal-content">
         <div class="photo"></div>
         <div class="desc">
           <div class="desc-header">
             <h2>지금 다양한 혜택을 받아보세요</h2>
-            <button><i class="fa-solid fa-x"></i></button>
+            <button class="btn-close"><i class="fa-solid fa-x"></i></button>
           </div>
           <div class="desc-content">
             <input type="email" placeholder="이메일 주소를 입력하세요" />
@@ -35,5 +37,18 @@
       src="https://kit.fontawesome.com/fed145381f.js"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      // open modal with page loading
+      $(".modal,.overlay").addClass("active"); //페이지가 열리면서 모달이 오픈됨
+
+      // open modal with click
+      $(".btn-open").click(function () {
+        $(".modal, .overlay").addClass("active");
+      });
+      $(".btn-close, .overlay").click(function () {
+        $(".modal, .overlay").removeClass("active");
+      });
+    </script>
   </body>
 </html>
