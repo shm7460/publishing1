@@ -8,5 +8,46 @@
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header>
+        <div class="lnb-inner">LNB inner</div>
+        <div class="gnb-inner">GNB inner</div>
+      </header>
+      <section>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus,
+          expedita totam, qui minima facere quas ea porro omnis dolorem incidunt
+          eligendi, deserunt eius? Officia temporibus nulla autem! Atque qui
+          sapiente minus. Minima, velit repudiandae quod reprehenderit quam
+          labore rerum natus eum similique neque ducimus voluptate aliquam sunt,
+          nostrum adipisci doloribus, odit nihil. Necessitatibus ipsum
+          voluptatibus a quisquam suscipit, ex cumque atque veniam tempora.
+          Consequuntur quidem explicabo expedita, dolorum saepe fugiat dolore
+          enim molestias incidunt, eligendi consectetur facere recusandae sit
+          non. Incidunt nihil dolore vero. Quidem iste sapiente sit ex quasi
+          voluptas a, iure aspernatur labore odit. Quidem illum dicta esse?
+        </p>
+      </section>
+    </div>
+    <a class="btn-top" href="#">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <script
+      src="https://kit.fontawesome.com/fed145381f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Header active class
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > 50) {
+          $("header, .btn-top").addClass("active");
+        } else {
+          $("header, .btn-top").removeClass("active");
+        }
+      });
+    </script>
+  </body>
 </html>

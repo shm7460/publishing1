@@ -274,6 +274,245 @@ width: calc(1000px - calc(100% - 40px));  //중첩도 가능함
 
 
 
+# Modal
+
+modal 파일
+
+ **overflow**
+
+```css
+.modal-content {
+  border-radius: 15px;
+  /* 이미지때매 넘친 부분 끊어준다 */
+  overflow: hidden;
+}
+```
+
+→ div에 border-radius을 했지만 자식요소에 이미지를 넣으면 안먹힌다 그럴때 overflow하면 넘친 부분을 끊어줌
+
+**pointer-events**
+
+```css
+.overlay {
+  opacity: 0;
+  transition: 0.3s;
+  /* 존재하지만 마우스클릭을 받지않겠다  */
+  pointer-events: none;
+  /* 이렇게해도 됨
+  visibility: hidden; */
+}
+.overlay.active {
+  opacity: 1;
+  /* overlay에 active클래스가 추가되면 포인터인벤트가 작동되게한다 */
+  pointer-events: all;
+  /* visibility: visible; */
+}
+```
+
+→ pointer-events를 사용하면 마우스클릭을 받지않겠다는 뜻임 대신해서 visibility사용해도됨
+
+**flex-basis**
+
+```css
+.photo {
+    /*photo에 background 이미지가 flex로 먼저 자리잡았기 때문에 flex-basis로 값을준다 */
+    flex-basis: 250px;
+}
+```
+
+**transform**
+
+```css
+/* transform은 중복해서 사용하면 안됨 */
+transform: translate(-50%, -50%) scale(0.7);
+```
+
+
+
+# 스크롤 후 헤더 디자인 변경
+
+scrolling 파일 header.html
+
+```CSS
+header.active .lnb-inner {
+  /* display: none; */
+  height: 0;
+  overflow: hidden;
+}
+```
+
+→ 높이 0을주고 overflow로 숨겨서 display:none 대신해서 사용할수있다
+
+```js
+if ($(window).scrollTop() > 50) {     }
+```
+
+→ 조건 : 마우스가 스크롤된상태가 50보다크다면
+
+```JS
+// Header active class
+$(window).scroll(function () {
+    if ($(window).scrollTop() > 50) {
+        $("header, .btn-top").addClass("active");
+    } else {
+        $("header, .btn-top").removeClass("active");
+    }
+});
+```
+
+
+
+# Slick Slider 사용법 
+
+slider 파일
+
+슬릭 슬라이더 플러그https://kenwheeler.github.io/slick/
+
+**사용방법**
+
+get it now에서 다운로드해서 같은 작업장소에 붙여넣는다 - usage에서 html 구조를 복사해온다- demos에서 script를 가져와 복사한다
+
+```html
+<head>
+ <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+ <!-- Slick -->
+    <link rel="stylesheet" href="slick/slick.css" />
+    <link rel="stylesheet" href="slick/slick-theme.css" />
+    <script src="slick/slick.js"></script>
+ <!-- style -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+```
+
+```html
+<body>
+<div class="myslider">
+      <div>Slid Content #01</div>
+      <div>Slid Content #02</div>
+      <div>Slid Content #03</div>
+      <div>Slid Content #04</div>
+      <div>Slid Content #05</div>
+      <div>Slid Content #06</div>
+      <div>Slid Content #07</div>
+      <div>Slid Content #08</div>
+      <div>Slid Content #09</div>
+    </div>   
+</body>
+```
+
+```html
+<body>
+<script>
+      $(".myslider").slick({
+        // 보여지는 갯수 스클롤수
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        // 자동재생
+        autoplay: true,
+        autoplaySpeed: 2000,
+        // 패이드
+        speed: 500,
+        fade: false,
+        cssEase: "linear",
+        // 도트
+        dots: true,
+      });
+    </script>
+ </body>
+```
+
+
+
+# 스크롤하면 시작되는 애니메이션 
+
+wow 파일
+
+https://wowjs.uk/
+
+**사용방법**
+
+wow.min.js를 다운해서 같으 폴더에 넣기- script에 `new WOW().init();`입력하기 - class이름에 wow 추가하기 -내가만든 @keyframe이 잘 적용되는지 확인하기
+
+```html
+<head>
+    <script src="js/wow.min.js"></script>
+</head>
+
+<body>
+    <div class="wow">
+        Content to Reveal Here
+    </div>
+    
+     <script>
+        new WOW().init();
+    </script>
+</body>
+```
+
+**옵션**
+
+```html
+<body>
+   <script>
+      wow = new WOW({
+        boxClass: "wow", // default  클래스이름설정
+        animateClass: "animated", // default
+        offset: 0, // default  어느정도 내려갔을때 작동하겠느냐
+        mobile: true, // default  모바일에서도 작동하겠냐
+        live: true, // default
+      });
+      wow.init();
+    </script>
+</body>
+```
+
+**옵션**
+
+```html
+<section class="wow slideInLeft" data-wow-duration="2s" data-wow-delay="5s">
+</section>
+
+<section class="wow slideInRight" data-wow-offset="10"  data-wow-iteration="10">
+</section>
+```
+
+data-wow-duration: 애니메이션 지속 시간 변경
+data-wow-delay: 애니메이션 시작 전 지연
+data-wow-offset: 애니메이션 시작 거리(브라우저 하단 관련)
+data-wow-iteration: 애니메이션 횟수 반복**
+
+
+
+**aos파일**
+
+https://michalsnik.github.io/aos/
+
+**사용방법**
+
+head에 cdn 링크해주기 (css,js둘다) - script에  `AOS.init();`해주기 -원하는 효과 html 복사 하기
+
+```html
+<div class="parent">
+      <div data-aos="fade-right" data-aos-duration="1000">left</div>
+      <div data-aos="fade-left" data-aos-duration="1000">right</div>
+</div>
+```
+
+  **AOS.js 옵션**
+      애니메이션을 원하는 요소에 아래 속성을 추가하면됨
+      애니메이션 속도 : data-aos-duration="3000"
+      애니메이션 이징 : data-aos-easing="linear"
+      애니메이션 시작위치 : data-aos-offset="300"
+      애니메이션 지연시간 : data-aos-delay="300"
+
+
+
+
+
+
+
 
 
 

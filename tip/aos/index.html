@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>Document</title>
+    <style>
+      .parent {
+        border: 1px solid #000;
+        width: 800px;
+        padding: 20px;
+        overflow: hidden;
+      }
+      .parent div {
+        float: left;
+        border: 3px solid red;
+        width: 50%;
+        height: 200px;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 200px;
+        font-size: 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Scroll Reveal Animation : AOS.js</h1>
+    <div class="parent">
+      <div data-aos="fade-right" data-aos-duration="1000">left</div>
+      <div data-aos="fade-left" data-aos-duration="1000">right</div>
+    </div>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+body {
+  background-color: pink;
+  margin: 0;
+}
+.myslider {
+  width: 80%;
+  margin: auto;
+}
+.myslider div {
+  border: 1px solid black;
+  height: 300px;
+  background-color: whitesmoke;
+  font-size: 30px;
+}
+/* style.css에게 우선순위를 줘야 display가 적용됨 */
+.myslider .slick-arrow {
+  display: none !important;
+}
+.myslider .slick-dots {
+  /* display: none !important; */
+  bottom: 0;
+}
+@media (max-width: 768px) {
+  .myslider {
+    width: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+.parent {
+  width: 80%;
+  background-color: aliceblue;
+  border: 1px solid black;
+  overflow: hidden;
+  margin: auto;
+}
+.child {
+  float: left;
+  width: 50%;
+  height: 30vh;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+.child:first-child {
+  animation: lat 1s linear both;
+}
+.child:last-child {
+  animation: rat 1s linear both;
+}
+
+@keyframes lat {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes rat {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
